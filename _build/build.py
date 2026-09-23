@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "5"  # cache-busting for css/js
+V = "6"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -252,22 +252,11 @@ def build_home(lang):
   </div>
   <p class="hero-line rise d3">{H['hero_line']}</p>
   <div class="hero-bottom rise d4">
-    <a class="scroll-cue" href="#offer" style="text-decoration:none"><b></b> {H['scroll']}</a>
+    <a class="scroll-cue" href="#about" style="text-decoration:none"><b></b> {H['scroll']}</a>
     <span>{H['place']}</span>
   </div>
 </header>
 {ticker(H['ticker'])}
-<section class="band dark grain" id="offer">
-  <div class="range-head reveal">
-    <div>
-      <p class="eyebrow">{H['offer_eyebrow']}</p>
-      <h2 class="h-lg">{H['offer_h']}</h2>
-    </div>
-    <p>{H['offer_p']}</p>
-  </div>
-  {tiles(lang, path, CAT_ORDER)}
-</section>
-
 <section class="band light" id="about">
   <div class="who">
     <div class="reveal">
@@ -282,6 +271,17 @@ def build_home(lang):
       </ul>
     </div>
   </div>
+</section>
+
+<section class="band dark grain" id="offer">
+  <div class="range-head reveal">
+    <div>
+      <p class="eyebrow">{H['offer_eyebrow']}</p>
+      <h2 class="h-lg">{H['offer_h']}</h2>
+    </div>
+    <p>{H['offer_p']}</p>
+  </div>
+  {tiles(lang, path, CAT_ORDER)}
 </section>
 
 <section class="band light-2" id="sports">
