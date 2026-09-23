@@ -93,10 +93,10 @@ CATS = {
     "fitness": {
         "img": "tile-fitness.webp",
         "me": {"nav": "Outdoor fitness", "title": "Outdoor fitness",
-               "text": "Sprave sa tegovima i street workout za javne prostore.",
+               "text": "StreetBarbell sprave sa tegovima i street workout, EN 16630.",
                "alt": "Red narandžastih sprava za trening snage na otvorenom"},
         "en": {"nav": "Outdoor fitness", "title": "Outdoor fitness",
-               "text": "Plate-loaded machines and street workout for public spaces.",
+               "text": "StreetBarbell plate-loaded machines and street workout, EN 16630.",
                "alt": "A row of orange outdoor strength machines"},
     },
 }

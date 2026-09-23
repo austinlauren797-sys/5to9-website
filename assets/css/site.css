@@ -483,3 +483,22 @@ html[lang^="sr"] .h-lp{line-height:.94}
 .lp-hero>div:first-child{container-type:inline-size;min-width:0}
 @supports(font-size:1cqi){.h-lp{font-size:clamp(34px,calc(var(--fit,11) * 1cqi),118px);overflow-wrap:normal}}
 @media(min-width:761px){.range-head .eyebrow{white-space:nowrap}}
+
+/* side rail: compact, and never taller than the screen (it hides on short screens instead of overlapping the menu) */
+.rail{gap:8px}
+.rail i{height:14px}
+@media(max-height:930px){.rail{display:none!important}}
+
+/* photo gallery (outdoor fitness colours) */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.2vw,18px)}
+.gallery figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:#ccc}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,.84,.44,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figure:first-child{clip-path:polygon(0 0,62% 0,68% 10%,100% 10%,100% 100%,0 100%)}
+@media(max-width:760px){
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 calc(var(--pad)*-1);padding:0 var(--pad);scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery figure{flex:0 0 80%;scroll-snap-align:center}
+}
+/* product sheet: renders on white need a little breathing room */
+.sheet-img img{max-height:52svh}

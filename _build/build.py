@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "2"  # cache-busting for css/js
+V = "4"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -234,7 +234,6 @@ def build_home(lang):
     out = [head(lang, key, path, H["title"], H["desc"], "og-teq.jpg", ld), body_open()]
     out.append(nav(lang, key, path, [(h, t, False) for h, t in H["nav"]], "#contact", C["cta_home"], False))
     mm = list(H["mm"])
-    mm.insert(5, ("#offer", H["nav"][5][1]))
     out.append(mobilemenu(lang, key, path, mm))
     out.append('<div class="rail" id="rail">\n' + "\n".join(
         f'  <a href="#{i}" data-t="{i}"><i></i>{t}</a>' for i, t in H["rail"]) + "\n</div>\n")
@@ -253,11 +252,22 @@ def build_home(lang):
   </div>
   <p class="hero-line rise d3">{H['hero_line']}</p>
   <div class="hero-bottom rise d4">
-    <span class="scroll-cue"><b></b> {H['scroll']}</span>
+    <a class="scroll-cue" href="#offer" style="text-decoration:none"><b></b> {H['scroll']}</a>
     <span>{H['place']}</span>
   </div>
 </header>
 {ticker(H['ticker'])}
+<section class="band dark grain" id="offer">
+  <div class="range-head reveal">
+    <div>
+      <p class="eyebrow">{H['offer_eyebrow']}</p>
+      <h2 class="h-lg">{H['offer_h']}</h2>
+    </div>
+    <p>{H['offer_p']}</p>
+  </div>
+  {tiles(lang, path, CAT_ORDER)}
+</section>
+
 <section class="band light" id="about">
   <div class="who">
     <div class="reveal">
@@ -290,23 +300,22 @@ def build_home(lang):
   </div>
 </section>
 
-<section class="band dark grain" id="range">
-  <div class="range-head reveal">
-    <div>
-      <p class="eyebrow">{H['range_eyebrow']}</p>
-      <h2 class="h-lg">{H['range_h']}</h2>
+<section class="band dark grain" id="fitness">
+  <div class="solution flip">
+    <div class="visual-frame reveal">
+      <div class="visual"><img src="{pre}assets/img/home-fitness.jpg" alt="{esc(H['fit_alt'])}" loading="lazy" width="1400" height="1100"></div>
     </div>
-    <p>{H['range_p']}</p>
+    <div class="reveal">
+      <span class="tag t-orange">{H['fit_tag']}</span>
+      <h3 class="h-md">{H['fit_h']}</h3>
+{ps(H['fit_p'])}
+      {more('fitness')}
+    </div>
   </div>
-  <div class="models reveal">
-{cards(P.TEQ, lang, pre)}
-  </div>
-  <p class="swipe-hint">{C['swipe']}</p>
-  <div class="specstrip reveal">{strip(P.TEQ_STRIP[lang])}</div>
 </section>
 
 <section class="band orange grain" id="digital">
-  <div class="solution flip">
+  <div class="solution">
     <div class="visual-frame reveal" style="--accent:#000">
       <div class="visual"><img src="{pre}assets/img/panel-handover.jpg" alt="{esc(H['digital_alt'])}" loading="lazy" width="1400" height="1100"></div>
     </div>
@@ -319,23 +328,8 @@ def build_home(lang):
   </div>
 </section>
 
-<section class="band light" id="panels">
-  <div class="range-head reveal">
-    <div>
-      <p class="eyebrow">{H['panels_eyebrow']}</p>
-      <h2 class="h-lg">{H['panels_h']}</h2>
-    </div>
-    <p>{H['panels_p']}</p>
-  </div>
-  <div class="models reveal">
-{cards(P.PANELS, lang, pre)}
-  </div>
-  <p class="swipe-hint">{C['swipe']}</p>
-  <div class="specstrip reveal">{strip(P.PANELS_STRIP[lang])}</div>
-</section>
-
 <section class="band dark grain" id="playgrounds">
-  <div class="solution">
+  <div class="solution flip">
     <div class="visual-frame reveal">
       <div class="visual"><img src="{pre}assets/img/playground.jpg" alt="{esc(H['play_alt'])}" loading="lazy" width="1400" height="1100"></div>
     </div>
@@ -346,21 +340,6 @@ def build_home(lang):
       {more('play')}
     </div>
   </div>
-</section>
-
-<section class="band light-2" id="playrange">
-  <div class="range-head reveal">
-    <div>
-      <p class="eyebrow">{H['playrange_eyebrow']}</p>
-      <h2 class="h-lg">{H['playrange_h']}</h2>
-    </div>
-    <p>{H['playrange_p']}</p>
-  </div>
-  <div class="models models-3 reveal">
-{cards(P.PLAY, lang, pre)}
-  </div>
-  <p class="swipe-hint">{C['swipe']}</p>
-  <div class="specstrip reveal">{strip(P.PLAY_STRIP[lang])}</div>
 </section>
 
 <section class="band light" id="process">
@@ -378,28 +357,6 @@ def build_home(lang):
   </div>
 </section>
 
-<!-- Numbers: edit freely, add more as needed -->
-<section class="band dark grain" id="work">
-  <div class="reveal">
-    <p class="eyebrow">{H['work_eyebrow']}</p>
-    <h2 class="h-lg" style="margin-bottom:clamp(34px,5vh,58px)">{H['work_h']}</h2>
-    <p class="lede" style="margin-bottom:clamp(30px,4vh,50px);opacity:.75">{H['work_lede']}</p>
-  </div>
-  <div class="stats reveal">
-{"".join(f'    <div><b>{b}</b><span>{s}</span></div>' + chr(10) for b, s in H['stats'])}  </div>
-</section>
-
-<section class="band light" id="offer">
-  <div class="range-head reveal">
-    <div>
-      <p class="eyebrow">{H['offer_eyebrow']}</p>
-      <h2 class="h-lg">{H['offer_h']}</h2>
-    </div>
-    <p>{H['offer_p']}</p>
-  </div>
-  {tiles(lang, path, CAT_ORDER)}
-</section>
-
 <section class="band dark grain" id="contact">
   <div class="reveal contact">
     <p class="eyebrow">{H['contact_eyebrow']}</p>
@@ -409,7 +366,6 @@ def build_home(lang):
 </section>
 """)
     out.append(footer(lang, key, path))
-    out.append(sheet(lang, "#contact"))
     out.append(end(path))
     write(path, "".join(out))
 
@@ -456,6 +412,23 @@ def build_lp(key, lang):
                       for i, (h, p) in enumerate(T["steps"]))
     faqs = "\n".join(f"""      <details><summary>{q}</summary><p>{a}</p></details>""" for q, a in faq)
     others = [k for k in CAT_ORDER if k != key]
+    gallery_html = ""
+    if D.get("gallery"):
+        figs = "\n".join(f'''    <figure><img src="{pre}assets/img/{g}" alt="{esc(T['gallery_alt'])}" loading="lazy" width="720" height="540"></figure>''' for g in D["gallery"])
+        gallery_html = f'''
+<section class="band light" id="{'boje' if lang=='me' else 'colours'}">
+  <div class="range-head reveal">
+    <div>
+      <p class="eyebrow">{T['gallery_eyebrow']}</p>
+      <h2 class="h-lg">{T['gallery_h']}</h2>
+    </div>
+    <p>{T['gallery_p']}</p>
+  </div>
+  <div class="gallery reveal">
+{figs}
+  </div>
+</section>
+'''
     import re as _re
     longest = max(len(w) for w in _re.sub(r"<[^>]+>", " ", T["h1"]).split())
     fit = round(96 / (longest * 0.66), 2)
@@ -504,6 +477,7 @@ def build_lp(key, lang):
   <div class="specstrip reveal">{strip(getattr(P, D['strip'])[lang])}</div>
 </section>
 
+{gallery_html}
 <section class="band light-2" id="{I['who']}">
   <div class="aud-wrap">
     <div class="reveal">

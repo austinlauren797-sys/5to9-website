@@ -80,9 +80,8 @@
   if(!rail){
     place(document.querySelector('.nav-links a.active'));
   } else {
-    var navFor={top:null,about:'#about',sports:'#sports',range:'#sports',digital:'#digital',
-                panels:'#digital',playgrounds:'#playgrounds',playrange:'#playgrounds',
-                process:'#process',work:'#process',offer:'#offer',contact:'#offer'};
+    var navFor={top:null,offer:'#offer',about:'#about',sports:'#sports',fitness:'#fitness',digital:'#digital',
+                playgrounds:'#playgrounds',process:'#process',contact:null};
     var markNav=function(id){
       var href=navFor[id], target=null;
       navLinks.forEach(function(a){
@@ -93,7 +92,7 @@
       place(target);
     };
     var links=[].slice.call(rail.querySelectorAll('a'));
-    var lightIds=['about','sports','panels','playrange','process','offer'];
+    var lightIds=['about','sports','process'];
     var railObserver=new IntersectionObserver(function(es){
       es.forEach(function(e){
         if(!e.isIntersecting) return;
