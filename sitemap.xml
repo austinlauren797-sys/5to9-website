@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://5to9.me/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/en/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/teqball-stolovi/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/teqball-stolovi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/teqball-tables/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/teqball-stolovi/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/en/teqball-tables/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/teqball-stolovi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/teqball-tables/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/teqball-stolovi/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/interaktivne-table/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/interaktivne-table/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/interactive-displays/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/interaktivne-table/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/en/interactive-displays/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/interaktivne-table/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/interactive-displays/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/interaktivne-table/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/djecija-igralista/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/djecija-igralista/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/playgrounds/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/djecija-igralista/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/en/playgrounds/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/djecija-igralista/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/playgrounds/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/djecija-igralista/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/outdoor-fitness/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/outdoor-fitness/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/outdoor-fitness/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/outdoor-fitness/"/>
+  </url>
+  <url>
+    <loc>https://5to9.me/en/outdoor-fitness/</loc>
+    <xhtml:link rel="alternate" hreflang="sr-ME" href="https://5to9.me/outdoor-fitness/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://5to9.me/en/outdoor-fitness/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://5to9.me/outdoor-fitness/"/>
   </url>
 </urlset>
