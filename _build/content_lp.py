@@ -30,6 +30,8 @@ LP = {
 # ------------------------------------------------------------------ TEQBALL
 "teqball": {
     "products": "TEQ", "strip": "TEQ_STRIP", "hero_img": "teq-court.jpg", "og": "og-teq.jpg", "models_cls": "models",
+    "gallery": ["gt-urban.webp", "gt-snow.webp", "gt-beach.webp", "gt-school.webp", "gt-hall.webp", "gt-promenade.webp"],
+    "gallery_id": {"me": "na-terenu", "en": "on-court"},
     "me": {
         "title": "Teqball stolovi — TEQ ONE, SMART, LITE i X | 5TO9 Crna Gora",
         "desc": "Teqball stolovi za škole, opštine, klubove i hotele u Crnoj Gori. Modeli TEQ ONE, TEQ SMART, TEQ LITE i TEQ X — isporuka, montaža i podrška. Zatražite ponudu.",
@@ -46,6 +48,10 @@ LP = {
             ("Provjeren kvalitet", "Stolovi su TÜV SÜD sertifikovani i proizvedeni u EU, uz garanciju od 24 mjeseca."),
             ("Isporuka i montaža", "Dovozimo, postavljamo i fiksiramo sto na lokaciji, i pomažemo da zaživi u školi ili zajednici."),
         ],
+        "gallery_eyebrow": "Na terenu",
+        "gallery_h": "SVUDA GDJE<br>SE IGRA.",
+        "gallery_p": "U školskoj sali, na plaži, u parku ili na snijegu — TEQ stolovi su napravljeni za unutrašnju i spoljašnju upotrebu tokom cijele godine.",
+        "gallery_alt": "TEQ sto u upotrebi",
         "range_eyebrow": "Modeli · TEQ",
         "range_h": "ZAKRIVLJENI STO,<br>ČETIRI MODELA.",
         "range_p": "Svaki model je dimenzija 3 × 1,5 m i visine 0,76 m, za unutrašnju i spoljašnju upotrebu. Izbor zavisi od toga da li sto stoji fiksno ili se pomjera i da li služi za takmičenja ili rekreaciju.",
@@ -89,6 +95,10 @@ LP = {
             ("Proven quality", "TÜV SÜD certified and made in the EU, with a 24-month warranty."),
             ("Delivery and installation", "We deliver, set up and anchor the table on site, and help it take off in the school or community."),
         ],
+        "gallery_eyebrow": "On court",
+        "gallery_h": "WHEREVER<br>PEOPLE PLAY.",
+        "gallery_p": "In a school hall, on the beach, in the park or in the snow — TEQ tables are built for indoor and outdoor use all year round.",
+        "gallery_alt": "TEQ table in use",
         "range_eyebrow": "Models · TEQ",
         "range_h": "THE CURVED<br>TABLE, FOUR WAYS.",
         "range_p": "Every model is 3 × 1.5 m at 0.76 m height, built for indoor and outdoor use. The choice comes down to whether the table stays put or moves, and whether it is used for competition or recreation.",
@@ -120,6 +130,8 @@ LP = {
 # ------------------------------------------------------------------ PANELS
 "panels": {
     "products": "PANELS", "strip": "PANELS_STRIP", "hero_img": "panel.webp", "og": "og-panels.jpg", "models_cls": "models",
+    "gallery": ["ge-present.webp", "ge-point.webp", "ge-handson.webp", "ge-explain.webp", "ge-class.webp", "ge-teachers.webp"],
+    "gallery_id": {"me": "edukacija", "en": "training"},
     "me": {
         "title": "Interaktivne table za škole i firme — 65″, 75″, 86″ | 5TO9 Crna Gora",
         "desc": "Interaktivne table 65″, 75″ i 86″ (4K, Android 14) za škole, vrtiće, institucije i firme u Crnoj Gori. Montaža, obuka i garancija 2 godine uključeni. Zatražite ponudu.",
@@ -136,6 +148,16 @@ LP = {
             ("Lokalna podrška", "Tehnička podrška tokom garantnog roka od 2 godine, od tima iz Podgorice."),
             ("Sve u kutiji", "Daljinski upravljač, dvije olovke, zidni nosač i kabl dolaze uz svaku tablu."),
         ],
+        "gallery_eyebrow": "Edukacija",
+        "gallery_h": "OBUKA JE<br>DIO ISPORUKE.",
+        "gallery_p": "Tabla vrijedi onoliko koliko se koristi. Zato nakon montaže u školi držimo praktičnu obuku za nastavnike — uživo, na njihovim tablama i u njihovim učionicama.",
+        "gallery_points": [
+            ("Osnove rada", "Uključivanje, pisanje i crtanje po tabli, dijeljenje ekrana sa računara i telefona."),
+            ("Tabla na času", "Kako tablu uključiti u svakodnevnu nastavu i pripremiti materijal za čas."),
+            ("Aplikacije i internet", "Pretraživač, aplikacije i obrazovni sadržaji na Android sistemu table."),
+            ("Podrška poslije obuke", "Ostajemo dostupni za pitanja i dodatne obuke tokom garantnog roka."),
+        ],
+        "gallery_alt": "Obuka nastavnika za rad na interaktivnoj tabli",
         "range_eyebrow": "Oprema · GAOKEview",
         "range_h": "TABLE, STOLOVI<br>I NOSAČI.",
         "range_p": "Interaktivne table u tri veličine, interaktivni sto za najmlađe i stalci za učionice bez zida za montažu.",
@@ -179,6 +201,16 @@ LP = {
             ("Local support", "Technical support throughout the 2-year warranty, from our team in Podgorica."),
             ("Everything in the box", "Remote control, two pens, wall mount and cable come with every panel."),
         ],
+        "gallery_eyebrow": "Training",
+        "gallery_h": "TRAINING COMES<br>WITH EVERY PANEL.",
+        "gallery_p": "A panel is only worth as much as it is used. After installation we run hands-on training for teachers — live, on their own panels, in their own classrooms.",
+        "gallery_points": [
+            ("The basics", "Switching on, writing and drawing on the board, sharing the screen from a computer or phone."),
+            ("The panel in class", "How to bring the panel into everyday lessons and prepare lesson material."),
+            ("Apps and the web", "The browser, apps and educational content on the panel's Android system."),
+            ("Support afterwards", "We stay available for questions and follow-up sessions throughout the warranty."),
+        ],
+        "gallery_alt": "Teacher training on an interactive display",
         "range_eyebrow": "Equipment · GAOKEview",
         "range_h": "PANELS, TABLES<br>AND STANDS.",
         "range_p": "Interactive panels in three sizes, an interactive table for the youngest, and stands for rooms without a wall to mount on.",
@@ -210,6 +242,8 @@ LP = {
 # ------------------------------------------------------------------ PLAYGROUNDS
 "playgrounds": {
     "products": "PLAY", "strip": "PLAY_STRIP", "hero_img": "playground.jpg", "og": "og-play.jpg", "models_cls": "models models-3",
+    "gallery": ["gb-organiq.webp", "gb-przelewice.webp", "gb-robinia.webp", "gb-compact.webp", "gb-ropes.webp", "gb-urban.webp"],
+    "gallery_id": {"me": "na-terenu", "en": "on-site"},
     "me": {
         "title": "Dječija igrališta — oprema, planiranje i montaža | 5TO9 Crna Gora",
         "desc": "Oprema za dječija igrališta za vrtiće, škole, opštine i hotele u Crnoj Gori. Više od 20 linija Buglo Play opreme sertifikovane po EN 1176. Planiranje i montaža.",
@@ -226,6 +260,10 @@ LP = {
             ("Materijali koji traju", "HDPE paneli od 15 mm, rotaciono liveni PE tobogani, nerđajući čelik i bagremovo drvo."),
             ("Od ideje do otvaranja", "Planiramo raspored, biramo opremu i montiramo igralište — jedan partner za cijeli projekat."),
         ],
+        "gallery_eyebrow": "Na terenu",
+        "gallery_h": "OD PARKA<br>DO DVORIŠTA.",
+        "gallery_p": "Buglo Play igrališta širom Evrope — Organiq figure za penjanje, drvene Robinia konstrukcije, kućice za najmlađe, mreže za penjanje i urbani mobilijar.",
+        "gallery_alt": "Buglo Play igralište",
         "range_eyebrow": "Oprema · Buglo Play",
         "range_h": "IGRALIŠTA,<br>LINIJU PO LINIJU.",
         "range_p": "Katalog sa više od dvadeset linija proizvoda, od jedne klackalice na opruzi do kompletnog tematskog tornja — uz prilagođene modifikacije kada lokacija traži nešto što još ne postoji.",
@@ -269,6 +307,10 @@ LP = {
             ("Materials that last", "15 mm HDPE panels, rotomoulded PE slides, stainless steel and robinia wood."),
             ("From idea to opening", "We plan the layout, choose the equipment and install the playground — one partner for the whole project."),
         ],
+        "gallery_eyebrow": "On site",
+        "gallery_h": "FROM PARKS<br>TO PRESCHOOL YARDS.",
+        "gallery_p": "Buglo Play playgrounds across Europe — Organiq climbing figures, wooden Robinia structures, play houses for the youngest, climbing nets and urban furniture.",
+        "gallery_alt": "Buglo Play playground",
         "range_eyebrow": "Equipment · Buglo Play",
         "range_h": "PLAYGROUNDS,<br>LINE BY LINE.",
         "range_p": "A catalogue of more than twenty product lines, from a single spring rider to a full themed play tower — plus custom modifications when the site asks for something that does not exist yet.",
@@ -301,6 +343,7 @@ LP = {
 "fitness": {
     "products": "FITNESS", "strip": "FITNESS_STRIP", "hero_img": "fitness-hero.jpg", "og": "og-fitness.jpg", "models_cls": "models models-3",
     "gallery": ["gal-orange.webp", "gal-red.webp", "gal-yellow.webp", "gal-green.webp", "gal-blue.webp", "gal-yellow2.webp"],
+    "gallery_id": {"me": "boje", "en": "colours"},
     "me": {
         "title": "Outdoor fitness — StreetBarbell sprave sa tegovima | 5TO9 Crna Gora",
         "desc": "Outdoor teretane StreetBarbell (Finska) za opštine, škole, hotele i stambene komplekse u Crnoj Gori: sprave sa patentiranim sistemom tegova, street workout, inkluzivna i dječija oprema. Sertifikat EN 16630.",

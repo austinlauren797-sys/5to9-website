@@ -174,3 +174,9 @@ html[lang^="sr"] .h-lp{line-height:.94}
 }
 /* product sheet: renders on white need a little breathing room */
 .sheet-img img{max-height:52svh}
+/* product renders inside a gallery: white card, whole object visible */
+.gallery figure.pr{background:#fff}
+.gallery figure.pr img{object-fit:contain}
+.gallery figure.pr:first-child{clip-path:none}
+/* training points above the education gallery */
+.gpoints{margin:0 0 clamp(26px,4vh,44px)}

@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "6"  # cache-busting for css/js
+V = "8"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -411,10 +411,18 @@ def build_lp(key, lang):
     faqs = "\n".join(f"""      <details><summary>{q}</summary><p>{a}</p></details>""" for q, a in faq)
     others = [k for k in CAT_ORDER if k != key]
     gallery_html = ""
+    points_html = ""
+    if T.get("gallery_points"):
+        points_html = '  <div class="benefits gpoints reveal">\n' + "\n".join(
+            f'    <div class="benefit"><span class="n">{i+1:02d}</span><h3>{h}</h3><p>{p}</p></div>' for i, (h, p) in enumerate(T["gallery_points"])) + "\n  </div>"
     if D.get("gallery"):
-        figs = "\n".join(f'''    <figure><img src="{pre}assets/img/{g}" alt="{esc(T['gallery_alt'])}" loading="lazy" width="720" height="540"></figure>''' for g in D["gallery"])
+        def _fig(g):
+            name, cls = (g if isinstance(g, tuple) else (g, ""))
+            c = f' class="{cls}"' if cls else ""
+            return f'''    <figure{c}><img src="{pre}assets/img/{name}" alt="{esc(T['gallery_alt'])}" loading="lazy" width="720" height="540"></figure>'''
+        figs = "\n".join(_fig(g) for g in D["gallery"])
         gallery_html = f'''
-<section class="band light" id="{'boje' if lang=='me' else 'colours'}">
+<section class="band light" id="{D['gallery_id'][lang]}">
   <div class="range-head reveal">
     <div>
       <p class="eyebrow">{T['gallery_eyebrow']}</p>
@@ -422,6 +430,7 @@ def build_lp(key, lang):
     </div>
     <p>{T['gallery_p']}</p>
   </div>
+{points_html}
   <div class="gallery reveal">
 {figs}
   </div>
