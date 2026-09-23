@@ -92,7 +92,7 @@
       place(target);
     };
     var links=[].slice.call(rail.querySelectorAll('a'));
-    var lightIds=['about','sports','process'];
+    var lightIds=['about','sports','fitness','process'];
     var railObserver=new IntersectionObserver(function(es){
       es.forEach(function(e){
         if(!e.isIntersecting) return;

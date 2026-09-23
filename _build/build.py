@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "4"  # cache-busting for css/js
+V = "5"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -278,9 +278,7 @@ def build_home(lang):
       <p class="lede">{H['who_lede']}</p>
       <p class="eyebrow" style="margin-top:36px;margin-bottom:0">{H['pillars_eyebrow']}</p>
       <ul class="pillars">
-        <li><a href="#sports"><span class="idx">P1</span>{H['pillars'][0]}<span class="arrow">→</span></a></li>
-        <li><a href="#digital"><span class="idx">P2</span>{H['pillars'][1]}<span class="arrow">→</span></a></li>
-        <li><a href="#playgrounds"><span class="idx">P3</span>{H['pillars'][2]}<span class="arrow">→</span></a></li>
+{"".join(f'        <li><a href="#{a}"><span class="idx">P{i+1}</span>{t}<span class="arrow">→</span></a></li>' + chr(10) for i, (a, t) in enumerate(zip(["sports", "digital", "playgrounds", "fitness"], H['pillars'])))}
       </ul>
     </div>
   </div>
@@ -300,22 +298,8 @@ def build_home(lang):
   </div>
 </section>
 
-<section class="band dark grain" id="fitness">
-  <div class="solution flip">
-    <div class="visual-frame reveal">
-      <div class="visual"><img src="{pre}assets/img/home-fitness.jpg" alt="{esc(H['fit_alt'])}" loading="lazy" width="1400" height="1100"></div>
-    </div>
-    <div class="reveal">
-      <span class="tag t-orange">{H['fit_tag']}</span>
-      <h3 class="h-md">{H['fit_h']}</h3>
-{ps(H['fit_p'])}
-      {more('fitness')}
-    </div>
-  </div>
-</section>
-
 <section class="band orange grain" id="digital">
-  <div class="solution">
+  <div class="solution flip">
     <div class="visual-frame reveal" style="--accent:#000">
       <div class="visual"><img src="{pre}assets/img/panel-handover.jpg" alt="{esc(H['digital_alt'])}" loading="lazy" width="1400" height="1100"></div>
     </div>
@@ -329,7 +313,7 @@ def build_home(lang):
 </section>
 
 <section class="band dark grain" id="playgrounds">
-  <div class="solution flip">
+  <div class="solution">
     <div class="visual-frame reveal">
       <div class="visual"><img src="{pre}assets/img/playground.jpg" alt="{esc(H['play_alt'])}" loading="lazy" width="1400" height="1100"></div>
     </div>
@@ -338,6 +322,20 @@ def build_home(lang):
       <h3 class="h-md" style="color:var(--orange)">{H['play_h']}</h3>
 {ps(H['play_p'])}
       {more('play')}
+    </div>
+  </div>
+</section>
+
+<section class="band light-2" id="fitness">
+  <div class="solution flip">
+    <div class="visual-frame reveal">
+      <div class="visual"><img src="{pre}assets/img/home-fitness.jpg" alt="{esc(H['fit_alt'])}" loading="lazy" width="1400" height="1100"></div>
+    </div>
+    <div class="reveal">
+      <span class="tag t-orange">{H['fit_tag']}</span>
+      <h3 class="h-md">{H['fit_h']}</h3>
+{ps(H['fit_p'])}
+      {more('fitness')}
     </div>
   </div>
 </section>
