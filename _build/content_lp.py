@@ -130,16 +130,16 @@ LP = {
 # ------------------------------------------------------------------ PANELS
 "panels": {
     "products": "PANELS", "strip": "PANELS_STRIP", "hero_img": "panel.webp", "og": "og-panels.jpg", "models_cls": "models",
-    "gallery": ["ge-present.webp", "ge-point.webp", "ge-handson.webp", "ge-explain.webp", "ge-class.webp", "ge-teachers.webp"],
+    "gallery": ["ge-board.webp", "ge-handson.webp", "ge-audience.webp", "ge-hall.webp"],
     "gallery_id": {"me": "edukacija", "en": "training"},
     "me": {
         "title": "Interaktivne table za škole i firme — 65″, 75″, 86″ | 5TO9 Crna Gora",
-        "desc": "Interaktivne table 65″, 75″ i 86″ (4K, Android 14) za škole, vrtiće, institucije i firme u Crnoj Gori. Montaža, obuka i garancija 2 godine uključeni. Zatražite ponudu.",
+        "desc": "Interaktivne table 65″, 75″ i 86″ (4K, Android 16) za škole, vrtiće, institucije i firme u Crnoj Gori. Montaža, obuka i garancija 2 godine uključeni. Zatražite ponudu.",
         "hero_alt": "Učenici i nastavnica rade na interaktivnoj tabli u učionici",
         "eyebrow": "Digitalna rješenja · GAOKEview",
         "h1": "INTERAKTIVNE<br><em>TABLE</em>",
         "lead": "Table koje stižu podešene, montirane i spremne za prvi čas. Uz svaku tablu: montaža, obuka zaposlenih, garancija 2 godine i tehnička podrška.",
-        "facts": ["100+ instaliranih tabli", "65″ · 75″ · 86″", "4K · Android 14", "Garancija 2 godine"],
+        "facts": ["100+ instaliranih tabli", "65″ · 75″ · 86″", "4K · Android 16", "Garancija 2 godine"],
         "ticker": ["Osnovne škole", "Srednje škole", "Vrtići", "Institucije", "Sale za sastanke"],
         "why_h": "SPREMNO<br>ZA ČAS.",
         "benefits": [
@@ -176,7 +176,7 @@ LP = {
         ],
         "faq": [
             ("Koje veličine table nudite?", "65″, 75″ i 86″ — sve sa 4K UHD DLED ekranom i dodirom na 20 tačaka."),
-            ("Da li je potreban računar?", "Ne. Tabla ima ugrađen Android 14 sa 8 GB RAM i 128 GB memorije i radi samostalno. Po potrebi se na nju može povezati i računar."),
+            ("Da li je potreban računar?", "Ne. Tabla ima ugrađen Android 16 sa 8 GB RAM i 128 GB memorije i radi samostalno. Po potrebi se na nju može povezati i računar."),
             ("Šta je uključeno?", "Montaža i konfiguracija, obuka korisnika, garancija 2 godine i tehnička podrška. U kutiji su daljinski upravljač, dvije olovke, zidni nosač i kabl."),
             ("Može li tabla biti na pokretnom stalku?", "Da. Nudimo mobilni stalak na točkićima (50″–100″) i električni stalak sa podesivom visinom (75″–100″)."),
             ("__procurement__", ""),
@@ -187,12 +187,12 @@ LP = {
     },
     "en": {
         "title": "Interactive displays for schools and offices — 65″, 75″, 86″ | 5TO9 Montenegro",
-        "desc": "65″, 75″ and 86″ interactive displays (4K, Android 14) for schools, preschools, institutions and companies in Montenegro. Installation, training and a 2-year warranty included.",
+        "desc": "65″, 75″ and 86″ interactive displays (4K, Android 16) for schools, preschools, institutions and companies in Montenegro. Installation, training and a 2-year warranty included.",
         "hero_alt": "Pupils and a teacher working at an interactive display in a classroom",
         "eyebrow": "Digital solutions · GAOKEview",
         "h1": "INTERACTIVE<br><em>DISPLAYS</em>",
         "lead": "Panels that arrive configured, mounted and ready for the first lesson. Every panel comes with installation, staff training, a 2-year warranty and technical support.",
-        "facts": ["100+ panels installed", "65″ · 75″ · 86″", "4K · Android 14", "2-year warranty"],
+        "facts": ["100+ panels installed", "65″ · 75″ · 86″", "4K · Android 16", "2-year warranty"],
         "ticker": ["Primary schools", "Secondary schools", "Preschools", "Institutions", "Meeting rooms"],
         "why_h": "READY FOR<br>THE LESSON.",
         "benefits": [
@@ -229,7 +229,7 @@ LP = {
         ],
         "faq": [
             ("Which sizes do you offer?", "65″, 75″ and 86″ — all with a 4K UHD DLED screen and 20-point touch."),
-            ("Do I need a computer?", "No. The panel runs Android 14 with 8 GB RAM and 128 GB storage and works on its own. A computer can be connected when needed."),
+            ("Do I need a computer?", "No. The panel runs Android 16 with 8 GB RAM and 128 GB storage and works on its own. A computer can be connected when needed."),
             ("What is included?", "Installation and configuration, user training, a 2-year warranty and technical support. The box contains a remote, two pens, a wall mount and a cable."),
             ("Can the panel go on a mobile stand?", "Yes. We offer a mobile stand on castors (50″–100″) and an electric height-adjustable stand (75″–100″)."),
             ("__procurement__", ""),

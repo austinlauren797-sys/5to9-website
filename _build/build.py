@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "8"  # cache-busting for css/js
+V = "9"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -431,7 +431,7 @@ def build_lp(key, lang):
     <p>{T['gallery_p']}</p>
   </div>
 {points_html}
-  <div class="gallery reveal">
+  <div class="gallery{' g4' if len(D['gallery'])==4 else ''} reveal">
 {figs}
   </div>
 </section>

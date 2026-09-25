@@ -39,7 +39,7 @@ PANELS = [
      "kind": {"me": "65″ · 75″ · 86″ DLED", "en": "65″ · 75″ · 86″ DLED"},
      "specs": [("Ekran", "4K UHD, 60 Hz", "Display", "4K UHD, 60 Hz"),
                ("Dodir", "20 tačaka, ±1 mm", "Touch", "20 points, ±1 mm"),
-               ("Sistem", "Android 14", "System", "Android 14"),
+               ("Sistem", "Android 16", "System", "Android 16"),
                ("Memorija", "8 GB / 128 GB", "Memory", "8 GB / 128 GB"),
                ("Zvuk", "2 × 20 W", "Audio", "2 × 20 W")]},
     {"img": "kids-table.webp", "title": {"me": "Interaktivni sto", "en": "Interactive table"},
