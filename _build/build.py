@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "9"  # cache-busting for css/js
+V = "11"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -158,6 +158,21 @@ def tiles(lang, path, keys, cls="tiles"):
     </a>""")
     return f'<div class="{cls} reveal">\n' + "\n".join(out) + "\n  </div>"
 
+# Google Business Profile "5to9" (verified listing)
+GBP_CID = "13877952940838974786"
+GBP_FID = "0x134ded3cc97ddb3f:0xc09864abd04b7542"
+GEO = (42.4345868, 19.2841371)
+MAP_URL = "https://maps.google.com/?cid=" + GBP_CID
+MAP_EMBED = "https://maps.google.com/maps?cid=" + GBP_CID + "&z=16&output=embed"
+REVIEW_URL = "https://www.google.com/search?q=5to9+Podgorica#lrd=" + GBP_FID + ",3,,,"
+
+def map_block(lang):
+    C = COMMON[lang]
+    return f"""<div class="map-wrap">
+      <div class="map"><iframe src="{MAP_EMBED}" title="{C['map_title']}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      <div class="map-links"><a href="{MAP_URL}" target="_blank" rel="noopener">{C['map']} &#8599;</a><a class="review" href="{REVIEW_URL}" target="_blank" rel="noopener">&#9733; {C['review']}</a></div>
+    </div>"""
+
 def contacts(lang):
     C = COMMON[lang]
     return f"""<div class="contacts">
@@ -206,7 +221,8 @@ def org_ld(lang):
         "url": SITE, "email": EMAIL, "telephone": PHONE, "image": SITE + "assets/img/og-teq.jpg",
         "address": {"@type": "PostalAddress", "streetAddress": "Ibrahima Koristovića 11",
                     "addressLocality": "Podgorica", "addressCountry": "ME"},
-        "areaServed": "ME",
+        "areaServed": "ME", "hasMap": MAP_URL, "sameAs": [MAP_URL],
+        "geo": {"@type": "GeoCoordinates", "latitude": GEO[0], "longitude": GEO[1]},
     }
 
 def ticker(items):
@@ -360,6 +376,7 @@ def build_home(lang):
     <p class="eyebrow">{H['contact_eyebrow']}</p>
     <h2 class="h-lg">{H['contact_h']}</h2>
     {contacts(lang)}
+    {map_block(lang)}
   </div>
 </section>
 """)
@@ -533,6 +550,7 @@ def build_lp(key, lang):
       </div>
     </div>
     {contacts(lang)}
+    {map_block(lang)}
   </div>
 </section>
 
