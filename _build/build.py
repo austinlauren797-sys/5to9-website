@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "11"  # cache-busting for css/js
+V = "12"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
@@ -166,12 +166,21 @@ MAP_URL = "https://maps.google.com/?cid=" + GBP_CID
 MAP_EMBED = "https://maps.google.com/maps?cid=" + GBP_CID + "&z=16&output=embed"
 REVIEW_URL = "https://www.google.com/search?q=5to9+Podgorica#lrd=" + GBP_FID + ",3,,,"
 
-def map_block(lang):
+def map_band(lang):
     C = COMMON[lang]
-    return f"""<div class="map-wrap">
-      <div class="map"><iframe src="{MAP_EMBED}" title="{C['map_title']}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
-      <div class="map-links"><a href="{MAP_URL}" target="_blank" rel="noopener">{C['map']} &#8599;</a><a class="review" href="{REVIEW_URL}" target="_blank" rel="noopener">&#9733; {C['review']}</a></div>
-    </div>"""
+    return f"""
+<section class="mapband" aria-label="{C['map_title']}">
+  <iframe src="{MAP_EMBED}" title="{C['map_title']}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  <div class="map-card">
+    <p class="eyebrow">{C['office']}</p>
+    <h3>5TO9</h3>
+    <p class="addr">{C['address_br']}</p>
+    <div class="map-links">
+      <a class="review" href="{REVIEW_URL}" target="_blank" rel="noopener">&#9733; {C['review']}</a>
+      <a href="{MAP_URL}" target="_blank" rel="noopener">{C['map']} &#8599;</a>
+    </div>
+  </div>
+</section>"""
 
 def contacts(lang):
     C = COMMON[lang]
@@ -185,7 +194,7 @@ def footer(lang, key, path):
     C = COMMON[lang]
     links = "".join(f'<a href="{rel(path, PATHS[k][lang])}">{CATS[k][lang]["nav"]}</a>' for k in CAT_ORDER)
     other = "en" if lang == "me" else "me"
-    return f"""
+    return map_band(lang) + f"""
 <footer class="band foot">
   <svg class="mark" viewBox="0 0 499 591" aria-hidden="true"><use href="#mark"/></svg>
   <span>{C['foot']}</span>
@@ -376,7 +385,6 @@ def build_home(lang):
     <p class="eyebrow">{H['contact_eyebrow']}</p>
     <h2 class="h-lg">{H['contact_h']}</h2>
     {contacts(lang)}
-    {map_block(lang)}
   </div>
 </section>
 """)
@@ -550,7 +558,6 @@ def build_lp(key, lang):
       </div>
     </div>
     {contacts(lang)}
-    {map_block(lang)}
   </div>
 </section>
 
