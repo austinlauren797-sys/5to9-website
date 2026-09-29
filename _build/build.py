@@ -13,7 +13,13 @@ OUT = os.path.join(HERE, "out")
 V = "12"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
-FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()
+FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
+# Favicon za browser + Google pretragu (kvadratni PNG/ICO u rootu sajta)
+ICON_FILES = ["favicon.ico", "favicon-192.png", "favicon-512.png", "apple-touch-icon.png"]
+FAVICON_LINKS = ('<link rel="icon" href="/favicon.ico" sizes="48x48">\n'
+                 '<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">\n'
+                 '<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">\n'
+                 '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">')
 
 IDS = {  # section anchors per language on landing pages
     "me": {"why": "zasto", "range": "oprema", "who": "za-koga", "process": "proces", "faq": "pitanja", "ask": "upit"},
@@ -56,7 +62,7 @@ def head(lang, key, path, title, desc, og_img, jsonld):
 <meta property="og:locale:alternate" content="{OG_LOCALE['en' if lang=='me' else 'me']}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0A0A">
-<link rel="icon" href="{FAVICON}">
+{FAVICON_LINKS}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
@@ -578,7 +584,8 @@ def build_lp(key, lang):
 def build_404():
     t = """<!DOCTYPE html>
 <html lang="sr-Latn-ME"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 — 5TO9</title><meta name="robots" content="noindex"><link rel="icon" href="%s">
+<title>404 — 5TO9</title><meta name="robots" content="noindex">
+%s
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css?v=%s"></head>
 <body class="lp"><header class="band dark grain" style="min-height:100svh">
@@ -586,7 +593,7 @@ def build_404():
 <p class="lp-lead">Page not found.</p>
 <div class="btns"><a class="btn btn-o" href="/">5TO9 — Početna</a><a class="btn btn-g" href="/en/">English</a></div>
 </header></body></html>
-""" % (FAVICON, V)
+""" % (FAVICON_LINKS, V)
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(t)
 
 def build_sitemap():
@@ -611,6 +618,10 @@ def main():
     css = open(os.path.join(HERE, "src", "base.css")).read() + open(os.path.join(HERE, "src", "extra.css")).read()
     open(os.path.join(OUT, "assets", "css", "site.css"), "w").write(css)
     shutil.copy(os.path.join(HERE, "src", "site.js"), os.path.join(OUT, "assets", "js", "site.js"))
+    icon_src = os.path.join(HERE, "src", "icons")
+    if not os.path.isdir(icon_src):  # inside the repo the icons live in the repo root
+        icon_src = os.path.join(HERE, "..")
+    for f in ICON_FILES: shutil.copy(os.path.join(icon_src, f), os.path.join(OUT, f))
     for lang in ("me", "en"):
         build_home(lang)
         for key in CAT_ORDER: build_lp(key, lang)
