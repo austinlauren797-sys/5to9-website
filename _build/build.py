@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "13"  # cache-busting for css/js
+V = "14"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
@@ -312,9 +312,6 @@ def build_home(lang):
       <ul class="pillars">
 {"".join(f'        <li><a href="#{a}"><span class="idx">P{i+1}</span>{t}<span class="arrow">→</span></a></li>' + chr(10) for i, (a, t) in enumerate(zip(["sports", "digital", "playgrounds", "fitness"], H['pillars'])))}
       </ul>
-      <p class="eyebrow" style="margin-top:36px;margin-bottom:0">{H['excl_eyebrow']}</p>
-      <ul class="pillars excl">
-{"".join(f'        <li><a href="{rel(path, PATHS[k][lang])}"><span class="idx">{i+1:02d}</span>{b}<span class="reg">{r}</span><span class="arrow">→</span></a></li>' + chr(10) for i, (k, b, r) in enumerate(H['excl']))}      </ul>
     </div>
   </div>
 </section>
@@ -399,6 +396,18 @@ def build_home(lang):
       <p style="margin-top:26px;max-width:34ch;opacity:.75">{H['process_note']}</p>
     </div>
   </div>
+</section>
+
+<section class="band light-2" id="partners">
+  <div class="range-head reveal">
+    <div>
+      <p class="eyebrow">{H['partners_eyebrow']}</p>
+      <h2 class="h-lg">{H['partners_h']}</h2>
+    </div>
+    <p>{H['partners_p']}</p>
+  </div>
+  <ul class="pillars partners reveal">
+{"".join(f'    <li><a href="{u}" target="_blank" rel="noopener"><span class="idx">{i+1:02d}</span>{n}<span class="reg">{r}</span><span class="site">{d}</span><span class="arrow">↗</span></a></li>' + chr(10) for i, (n, r, u, d) in enumerate(H['partners']))}  </ul>
 </section>
 
 <section class="band dark grain" id="contact">
