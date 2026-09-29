@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Shared strings, page registry and category tiles for the 5TO9 site (ME + EN)."""
+"""Shared strings, page registry and category tiles for the 5to9 site (ME + EN)."""
 
 SITE = "https://5to9.me/"
 EMAIL = "team@5to9.me"
@@ -23,7 +23,7 @@ OG_LOCALE = {"me": "sr_ME", "en": "en_GB"}
 COMMON = {
     "me": {
         "home": "Početna",
-        "home_aria": "5TO9 početna",
+        "home_aria": "5to9 početna",
         "cta": "Zatražite ponudu",
         "cta_home": "Pokrenite projekat",
         "menu_open": "Otvori meni",
@@ -35,14 +35,14 @@ COMMON = {
         "address": "Ibrahima Koristovića 11, Podgorica",
         "address_br": "Ibrahima Koristovića 11<br>Podgorica, Crna Gora",
         "foot": "Five to Nine — Podgorica, Crna Gora",
-        "email": "Email", "phone": "Telefon", "office": "Kancelarija", "map": "Otvori u Google Maps", "review": "Ostavite recenziju na Google-u", "map_title": "5TO9 na mapi — Ibrahima Koristovića 11, Podgorica",
+        "email": "Email", "phone": "Telefon", "office": "Kancelarija", "map": "Otvori u Google Maps", "review": "Ostavite recenziju na Google-u", "map_title": "5to9 na mapi — Ibrahima Koristovića 11, Podgorica",
         "lang_label": "Jezik",
         "contact": "Kontakt",
         "go": "Saznajte više →",
     },
     "en": {
         "home": "Home",
-        "home_aria": "5TO9 home",
+        "home_aria": "5to9 home",
         "cta": "Request a quote",
         "cta_home": "Start a project",
         "menu_open": "Open menu",
@@ -54,7 +54,7 @@ COMMON = {
         "address": "Ibrahima Koristovića 11, Podgorica",
         "address_br": "Ibrahima Koristovića 11<br>Podgorica, Montenegro",
         "foot": "Five to Nine — Podgorica, Montenegro",
-        "email": "Email", "phone": "Phone", "office": "Office", "map": "Open in Google Maps", "review": "Leave a Google review", "map_title": "5TO9 on the map — Ibrahima Koristovića 11, Podgorica",
+        "email": "Email", "phone": "Phone", "office": "Office", "map": "Open in Google Maps", "review": "Leave a Google review", "map_title": "5to9 on the map — Ibrahima Koristovića 11, Podgorica",
         "lang_label": "Language",
         "contact": "Contact",
         "go": "Learn more →",
@@ -66,10 +66,10 @@ CATS = {
     "teqball": {
         "img": "tile-teq.webp",
         "me": {"nav": "Teqball stolovi", "title": "Teqball stolovi",
-               "text": "Četiri TEQ modela za škole, klubove, hotele i javne prostore.",
+               "text": "Teqball, ekskluzivno za Balkan. Četiri TEQ modela za škole, klubove, hotele i javne prostore.",
                "alt": "TEQ sto pored osvijetljenog sportskog terena"},
         "en": {"nav": "Teqball tables", "title": "Teqball tables",
-               "text": "Four TEQ models for schools, clubs, hotels and public spaces.",
+               "text": "Teqball, exclusive for the Balkans. Four TEQ models for schools, clubs, hotels and public spaces.",
                "alt": "TEQ table beside a floodlit sports court"},
     },
     "panels": {
@@ -84,19 +84,19 @@ CATS = {
     "playgrounds": {
         "img": "tile-play.webp",
         "me": {"nav": "Dječija igrališta", "title": "Dječija igrališta",
-               "text": "Više od 20 linija opreme, sertifikovane po EN 1176.",
+               "text": "Buglo Play, ekskluzivno za Crnu Goru. Više od 20 linija opreme, sertifikovane po EN 1176.",
                "alt": "Djeca se igraju na inkluzivnom igralištu"},
         "en": {"nav": "Playgrounds", "title": "Children's playgrounds",
-               "text": "More than 20 equipment lines, certified to EN 1176.",
+               "text": "Buglo Play, exclusive for Montenegro. More than 20 equipment lines, certified to EN 1176.",
                "alt": "Children playing on an inclusive playground"},
     },
     "fitness": {
         "img": "tile-fitness.webp",
         "me": {"nav": "Outdoor fitness", "title": "Outdoor fitness",
-               "text": "StreetBarbell sprave sa tegovima i street workout, EN 16630.",
+               "text": "StreetBarbell, ekskluzivno za Crnu Goru. Sprave sa tegovima i street workout, EN 16630.",
                "alt": "Red narandžastih sprava za trening snage na otvorenom"},
         "en": {"nav": "Outdoor fitness", "title": "Outdoor fitness",
-               "text": "StreetBarbell plate-loaded machines and street workout, EN 16630.",
+               "text": "StreetBarbell, exclusive for Montenegro. Plate-loaded machines and street workout, EN 16630.",
                "alt": "A row of orange outdoor strength machines"},
     },
 }

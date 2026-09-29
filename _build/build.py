@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Static generator for 5to9.me — ME (default) + EN, homepage + 4 landing pages.
 Run: python3 build.py  → writes ./out/ (upload its contents to the repo root)."""
-import json, os, shutil, html
+import json, os, re, shutil, html
 from urllib.parse import quote
 from content_common import *
 from content_home import HOME
@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "12"  # cache-busting for css/js
+V = "13"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
@@ -53,7 +53,7 @@ def head(lang, key, path, title, desc, og_img, jsonld):
 <link rel="alternate" hreflang="{HREFLANG['en']}" href="{SITE}{en}">
 <link rel="alternate" hreflang="x-default" href="{SITE}{me}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="5TO9">
+<meta property="og:site_name" content="5to9">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{SITE}{path}">
@@ -179,7 +179,7 @@ def map_band(lang):
   <iframe src="{MAP_EMBED}" title="{C['map_title']}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
   <div class="map-card">
     <p class="eyebrow">{C['office']}</p>
-    <h3>5TO9</h3>
+    <h3>5to9</h3>
     <p class="addr">{C['address_br']}</p>
     <div class="map-links">
       <a class="review" href="{REVIEW_URL}" target="_blank" rel="noopener">&#9733; {C['review']}</a>
@@ -232,7 +232,7 @@ def end(path):
 
 def org_ld(lang):
     return {
-        "@type": "LocalBusiness", "@id": SITE + "#org", "name": "5TO9", "alternateName": "Five to Nine",
+        "@type": "LocalBusiness", "@id": SITE + "#org", "name": "5to9", "alternateName": "Five to Nine",
         "url": SITE, "email": EMAIL, "telephone": PHONE, "image": SITE + "assets/img/og-teq.jpg",
         "address": {"@type": "PostalAddress", "streetAddress": "Ibrahima Koristovića 11",
                     "addressLocality": "Podgorica", "addressCountry": "ME"},
@@ -251,17 +251,29 @@ def ticker(items):
 </div>
 """
 
+BRAND_RE = re.compile(r"(?<![\w@./-])5to9(?!\.me)(?![\w@/-])")
+def brand_nb(page):
+    """Wrap visible '5to9' text in <span class="nb"> so text-transform:uppercase can't turn it into 5TO9.
+    Only text between tags inside <body> is touched (not attributes, <script>, <style> or <head>)."""
+    b = page.find("<body")
+    if b < 0: return page
+    head, body = page[:b], page[b:]
+    parts = re.split(r"(<script\b.*?</script>|<style\b.*?</style>|<[^>]+>)", body, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = BRAND_RE.sub('<span class="nb">5to9</span>', parts[i])
+    return head + "".join(parts)
+
 def write(path, content):
     fp = os.path.join(OUT, path, "index.html") if path else os.path.join(OUT, "index.html")
     os.makedirs(os.path.dirname(fp), exist_ok=True)
-    open(fp, "w", encoding="utf-8").write(content)
+    open(fp, "w", encoding="utf-8").write(brand_nb(content))
 
 # ------------------------------------------------------------------ HOME
 def build_home(lang):
     H = HOME[lang]; C = COMMON[lang]; key = "home"
     path = PATHS[key][lang]; pre = "../" * depth_of(path)
     ld = {"@context": "https://schema.org", "@graph": [org_ld(lang),
-          {"@type": "WebSite", "name": "5TO9", "url": SITE, "inLanguage": HREFLANG[lang]}]}
+          {"@type": "WebSite", "name": "5to9", "url": SITE, "inLanguage": HREFLANG[lang]}]}
     out = [head(lang, key, path, H["title"], H["desc"], "og-teq.jpg", ld), body_open()]
     out.append(nav(lang, key, path, [(h, t, False) for h, t in H["nav"]], "#contact", C["cta_home"], False))
     mm = list(H["mm"])
@@ -278,7 +290,7 @@ def build_home(lang):
 <header class="band dark grain hero" id="top">
   <svg class="hero-mark" viewBox="0 0 499 591" aria-hidden="true"><use href="#mark"/></svg>
   <div class="hero-inner">
-    <svg class="logo rise d1" viewBox="0 0 499 591" role="img" aria-label="5TO9"><use href="#mark"/></svg>
+    <svg class="logo rise d1" viewBox="0 0 499 591" role="img" aria-label="5to9"><use href="#mark"/></svg>
     <h1 class="stack rise d2">FIVE<span class="to">TO</span>NINE</h1>
   </div>
   <p class="hero-line rise d3">{H['hero_line']}</p>
@@ -300,6 +312,9 @@ def build_home(lang):
       <ul class="pillars">
 {"".join(f'        <li><a href="#{a}"><span class="idx">P{i+1}</span>{t}<span class="arrow">→</span></a></li>' + chr(10) for i, (a, t) in enumerate(zip(["sports", "digital", "playgrounds", "fitness"], H['pillars'])))}
       </ul>
+      <p class="eyebrow" style="margin-top:36px;margin-bottom:0">{H['excl_eyebrow']}</p>
+      <ul class="pillars excl">
+{"".join(f'        <li><a href="{rel(path, PATHS[k][lang])}"><span class="idx">{i+1:02d}</span>{b}<span class="reg">{r}</span><span class="arrow">→</span></a></li>' + chr(10) for i, (k, b, r) in enumerate(H['excl']))}      </ul>
     </div>
   </div>
 </section>
@@ -415,7 +430,7 @@ def build_lp(key, lang):
         {"@type": "WebPage", "name": T["title"], "url": SITE + path, "inLanguage": HREFLANG[lang],
          "description": T["desc"], "isPartOf": {"@id": SITE + "#org"}},
         {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "5TO9", "item": SITE + PATHS["home"][lang]},
+            {"@type": "ListItem", "position": 1, "name": "5to9", "item": SITE + PATHS["home"][lang]},
             {"@type": "ListItem", "position": 2, "name": CATS[key][lang]["title"], "item": SITE + path}]},
         {"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
@@ -584,17 +599,17 @@ def build_lp(key, lang):
 def build_404():
     t = """<!DOCTYPE html>
 <html lang="sr-Latn-ME"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 — 5TO9</title><meta name="robots" content="noindex">
+<title>404 — 5to9</title><meta name="robots" content="noindex">
 %s
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css?v=%s"></head>
 <body class="lp"><header class="band dark grain" style="min-height:100svh">
 <p class="eyebrow">404</p><h1 class="h-lp">STRANICA<br><em>NE POSTOJI.</em></h1>
 <p class="lp-lead">Page not found.</p>
-<div class="btns"><a class="btn btn-o" href="/">5TO9 — Početna</a><a class="btn btn-g" href="/en/">English</a></div>
+<div class="btns"><a class="btn btn-o" href="/">5to9 — Početna</a><a class="btn btn-g" href="/en/">English</a></div>
 </header></body></html>
 """ % (FAVICON_LINKS, V)
-    open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(t)
+    open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(brand_nb(t))
 
 def build_sitemap():
     rows = []
