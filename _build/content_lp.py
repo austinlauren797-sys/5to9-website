@@ -3,6 +3,7 @@
 
 LP_COMMON = {
     "me": {
+        "proj_eyebrow": "Realizovani projekti", "proj_h": "ISPORUČENO<br>I MONTIRANO.",
         "why_eyebrow": "Zašto 5to9", "aud_eyebrow": "Za koga", "aud_h": "ZA KOGA<br>JE OVO.",
         "proc_eyebrow": "Kako radimo", "faq_eyebrow": "Česta pitanja", "faq_h": "PITANJA<br>I ODGOVORI.",
         "ask_eyebrow": "Upit", "ask_h": "ZATRAŽITE<br>PONUDU.", "ask_btn": "Pošaljite upit", "call_btn": "Pozovite",
@@ -14,6 +15,7 @@ LP_COMMON = {
         "mail_body": "Poštovani,\n\nzanima nas: {cat}\n\nUstanova / firma:\nGrad:\nKoličina / veličina prostora:\nŽeljeni rok:\n\nPoruka:\n",
     },
     "en": {
+        "proj_eyebrow": "Completed projects", "proj_h": "DELIVERED<br>AND INSTALLED.",
         "why_eyebrow": "Why 5to9", "aud_eyebrow": "Who it's for", "aud_h": "WHO IT'S<br>FOR.",
         "proc_eyebrow": "How we work", "faq_eyebrow": "FAQ", "faq_h": "QUESTIONS<br>&amp; ANSWERS.",
         "ask_eyebrow": "Enquiry", "ask_h": "REQUEST<br>A QUOTE.", "ask_btn": "Send an enquiry", "call_btn": "Call us",
@@ -38,7 +40,7 @@ LP = {
         "hero_alt": "TEQ sto pored osvijetljenog sportskog terena u Podgorici",
         "eyebrow": "Ekskluzivni distributer · Teqball",
         "h1": "TEQBALL<br><em>STOLOVI</em>",
-        "lead": "Ekskluzivni distributer Teqball-a za Balkan. Zakrivljeni TEQ stolovi za škole, opštine, sportske klubove i hotele — isporučeni, postavljeni i spremni za igru. Jedan sto, pet sportova: teqball, teqvoly, teqpong, qatch i para teqball.",
+        "lead": "Ekskluzivni distributer Teqball opreme za Balkan. Nudimo četiri modela originalnih TEQ i Teqball stolova za škole, opštine, sportske klubove, hotele i privatne sportske prostore, uz isporuku i montažu.",
         "facts": ["Ekskluzivno za Balkan", "300+ instaliranih stolova", "4 modela", "TÜV SÜD sertifikat", "Garancija 24 mj."],
         "ticker": ["Teqball", "Teqvoly", "Teqpong", "Qatch", "Para teqball"],
         "why_h": "JEDAN STO,<br>PET SPORTOVA.",
@@ -68,6 +70,15 @@ LP = {
             ("Isporuka i montaža", "Dovozimo sto i postavljamo ga na lokaciji; fiksne modele pričvršćujemo za podlogu."),
             ("Aktivacija", "Pokazujemo kako se sto koristi i pomažemo da zaživi kroz igru i takmičenja."),
         ],
+        # Realizovani projekti — foto (opciono): assets/img/projects/<img>
+        "projects": [
+            {"img": "teqball-podgorica.jpg", "meta": "Podgorica · 2025", "title": "Teqball u školama — Podgorica",
+             "text": "Sve podgoričke srednje škole dobile su profesionalne Teqball stolove kroz projekat Glavnog grada i Sekretarijata za sport, uz Ministarstvo prosvjete, nauke i inovacija i Teqball savez Crne Gore. U Gimnaziji „Slobodan Škerović“ održan je i prvi školski Teqball turnir u Crnoj Gori.",
+             "link": "https://sport.podgorica.me/medunarodna-teqball-federacija-najavila-punu-podrsku-nastavku-programa-teqball-u-skolama/", "link_label": "Vijest — Sekretarijat za sport"},
+            {"img": "teqball-cg.jpg", "meta": "Crna Gora · 2025–2026", "title": "Teqball u školama — cijela Crna Gora",
+             "text": "Program sa Ministarstvom prosvjete, nauke i inovacija, FITEQ-om i Teqball savezom Crne Gore, sa ciljem da do kraja 2026. sve srednje škole u Crnoj Gori dobiju Teqball stolove. Škole na sjeveru i u centralnoj regiji su opremljene, a program se nastavlja na jugu.",
+             "link": "https://www.gov.me/clanak/program-teqball-u-skolama-se-nastavlja-u-juznoj-regiji", "link_label": "Vijest na gov.me"},
+        ],
         "faq": [
             ("Da li je 5to9 zvanični distributer Teqball-a?", "Da. 5to9 je ekskluzivni distributer Teqball-a za Balkan. Stolove nabavljamo direktno od proizvođača, uz punu garanciju i lokalnu podršku."),
             ("Koliko prostora je potrebno za teqball sto?", "Sam sto zauzima 3 × 1,5 m, a oko njega je potrebna slobodna zona za kretanje igrača. Pri izboru lokacije pomažemo da odredite odgovarajući prostor."),
@@ -86,7 +97,7 @@ LP = {
         "hero_alt": "TEQ table beside a floodlit sports court in Podgorica",
         "eyebrow": "Exclusive distributor · Teqball",
         "h1": "TEQBALL<br><em>TABLES</em>",
-        "lead": "Exclusive Teqball distributor for the Balkans. Curved TEQ tables for schools, municipalities, sports clubs and hotels — delivered, installed and ready to play. One table, five sports: teqball, teqvoly, teqpong, qatch and para teqball.",
+        "lead": "Exclusive Teqball distributor for the Balkans. We offer four models of original TEQ and Teqball tables for schools, municipalities, sports clubs, hotels and private sports facilities, with delivery and installation.",
         "facts": ["Exclusive for the Balkans", "300+ tables installed", "4 models", "TÜV SÜD certified", "24-month warranty"],
         "ticker": ["Teqball", "Teqvoly", "Teqpong", "Qatch", "Para teqball"],
         "why_h": "ONE TABLE,<br>FIVE SPORTS.",
@@ -116,6 +127,14 @@ LP = {
             ("Delivery and installation", "We deliver the table and set it up on site; fixed models are anchored to the ground."),
             ("Activation", "We show how the table is used and help it take off through play and competitions."),
         ],
+        "projects": [
+            {"img": "teqball-podgorica.jpg", "meta": "Podgorica · 2025", "title": "Teqball in Schools — Podgorica",
+             "text": "Every secondary school in Podgorica received professional Teqball tables through a project of the Capital City and its Secretariat for Sport, with the Ministry of Education, Science and Innovation and the Teqball Federation of Montenegro. Gymnasium “Slobodan Škerović” also hosted Montenegro's first school Teqball tournament.",
+             "link": "https://sport.podgorica.me/medunarodna-teqball-federacija-najavila-punu-podrsku-nastavku-programa-teqball-u-skolama/", "link_label": "News — Secretariat for Sport"},
+            {"img": "teqball-cg.jpg", "meta": "Montenegro · 2025–2026", "title": "Teqball in Schools — nationwide",
+             "text": "A programme with the Ministry of Education, Science and Innovation, FITEQ and the Teqball Federation of Montenegro, aiming to equip every secondary school in Montenegro with Teqball tables by the end of 2026. Schools in the north and central region are equipped and the programme continues in the south.",
+             "link": "https://www.gov.me/clanak/program-teqball-u-skolama-se-nastavlja-u-juznoj-regiji", "link_label": "News on gov.me"},
+        ],
         "faq": [
             ("Is 5to9 an official Teqball distributor?", "Yes. 5to9 is the exclusive Teqball distributor for the Balkans. We source tables directly from the manufacturer, with the full warranty and local support."),
             ("How much space does a teqball table need?", "The table itself is 3 × 1.5 m, and it needs a clear zone around it for players to move. We help you pick a suitable spot when choosing the location."),
@@ -140,7 +159,7 @@ LP = {
         "hero_alt": "Učenici i nastavnica rade na interaktivnoj tabli u učionici",
         "eyebrow": "Ekskluzivni distributer · GAOKEview",
         "h1": "INTERAKTIVNE<br><em>TABLE</em>",
-        "lead": "Ekskluzivni distributer GAOKEview tabli za Crnu Goru. Table koje stižu podešene, montirane i spremne za prvi čas. Uz svaku tablu: montaža, obuka zaposlenih, garancija 2 godine i tehnička podrška.",
+        "lead": "Ekskluzivni distributer GAOKEview interaktivnih tabli i panela za Crnu Goru. Isporučujemo, montiramo i konfigurišemo interaktivne table za škole, vrtiće, institucije i kompanije, uz obuku korisnika, tehničku podršku i garanciju od 2 godine.",
         "facts": ["Ekskluzivno za Crnu Goru", "100+ instaliranih tabli", "65″ · 75″ · 86″", "4K · Android 16", "Garancija 2 godine"],
         "ticker": ["Osnovne škole", "Srednje škole", "Vrtići", "Institucije", "Sale za sastanke"],
         "why_h": "SPREMNO<br>ZA ČAS.",
@@ -176,6 +195,15 @@ LP = {
             ("Montaža", "Montiramo i podešavamo table na lokaciji."),
             ("Obuka", "Obučavamo korisnike i ostajemo na raspolaganju za podršku."),
         ],
+        # Realizovani projekti — foto (opciono): assets/img/projects/<img>
+        "projects": [
+            {"img": "djina-vrbica.jpg", "meta": "Podgorica · maj 2026", "title": "JPU „Đina Vrbica“",
+             "text": "13 GAOKEview interaktivnih tabli sa pratećom opremom i edukativnim digitalnim alatima — za sve vaspitne jedinice najveće predškolske ustanove u Crnoj Gori.",
+             "link": "https://gradski.me/drustvo/jpu-djina-vrbica-obezbijedila-interaktivne-table-za-sve-vaspitne-jedinice-2/", "link_label": "Vijest na gradski.me"},
+            {"img": "more-mogucnosti.jpg", "meta": "Primorje · 2026", "title": "„More mogućnosti“ — škole na primorju",
+             "text": "Šest interaktivnih tabli za osnovne škole u Herceg Novom, Risnu, Tivtu, Budvi, Baru i Ulcinju, uz edukaciju nastavnog kadra. Projekat sprovodi CAMS, uz podršku Morskog dobra.",
+             "link": "https://rtnk.me/drustvo/morsko-dobro-doniralo-sredstva-sest-interaktivnih-tabli-za-skole-na-primorju/", "link_label": "Vijest na rtnk.me"},
+        ],
         "faq": [
             ("Ko je distributer GAOKEview tabli u Crnoj Gori?", "5to9 je ekskluzivni distributer GAOKEview interaktivnih tabli za Crnu Goru — ponuda, isporuka, montaža, obuka i podrška idu preko nas."),
             ("Koje veličine table nudite?", "65″, 75″ i 86″ — sve sa 4K UHD DLED ekranom i dodirom na 20 tačaka."),
@@ -194,7 +222,7 @@ LP = {
         "hero_alt": "Pupils and a teacher working at an interactive display in a classroom",
         "eyebrow": "Exclusive distributor · GAOKEview",
         "h1": "INTERACTIVE<br><em>DISPLAYS</em>",
-        "lead": "Exclusive GAOKEview distributor for Montenegro. Panels that arrive configured, mounted and ready for the first lesson. Every panel comes with installation, staff training, a 2-year warranty and technical support.",
+        "lead": "Exclusive GAOKEview distributor of interactive displays and panels for Montenegro. We supply, install and configure interactive displays for schools, preschools, institutions and companies, with user training, technical support and a 2-year warranty.",
         "facts": ["Exclusive for Montenegro", "100+ panels installed", "65″ · 75″ · 86″", "4K · Android 16", "2-year warranty"],
         "ticker": ["Primary schools", "Secondary schools", "Preschools", "Institutions", "Meeting rooms"],
         "why_h": "READY FOR<br>THE LESSON.",
@@ -230,6 +258,14 @@ LP = {
             ("Installation", "We mount and configure the panels on site."),
             ("Training", "We train the users and stay available for support."),
         ],
+        "projects": [
+            {"img": "djina-vrbica.jpg", "meta": "Podgorica · May 2026", "title": "JPU “Đina Vrbica”",
+             "text": "13 GAOKEview interactive displays with accessories and educational digital tools — for every unit of Montenegro's largest preschool institution.",
+             "link": "https://gradski.me/drustvo/jpu-djina-vrbica-obezbijedila-interaktivne-table-za-sve-vaspitne-jedinice-2/", "link_label": "News on gradski.me"},
+            {"img": "more-mogucnosti.jpg", "meta": "Coast · 2026", "title": "“More mogućnosti” — coastal schools",
+             "text": "Six interactive displays for primary schools in Herceg Novi, Risan, Tivat, Budva, Bar and Ulcinj, with teacher training. The project is run by CAMS with the support of Morsko dobro.",
+             "link": "https://rtnk.me/drustvo/morsko-dobro-doniralo-sredstva-sest-interaktivnih-tabli-za-skole-na-primorju/", "link_label": "News on rtnk.me"},
+        ],
         "faq": [
             ("Who distributes GAOKEview in Montenegro?", "5to9 is the exclusive GAOKEview distributor for Montenegro — quotes, delivery, installation, training and support all go through us."),
             ("Which sizes do you offer?", "65″, 75″ and 86″ — all with a 4K UHD DLED screen and 20-point touch."),
@@ -254,7 +290,7 @@ LP = {
         "hero_alt": "Djeca se igraju na inkluzivnom igralištu",
         "eyebrow": "Ekskluzivni distributer · Buglo Play",
         "h1": "DJEČIJA<br><em>IGRALIŠTA</em>",
-        "lead": "Ekskluzivni distributer Buglo Play opreme za Crnu Goru. Od jedne klackalice do kompletnog tematskog igrališta — biramo opremu, planiramo raspored i montiramo igralište prilagođeno prostoru i djeci koja će ga koristiti.",
+        "lead": "Ekskluzivni distributer Buglo Play opreme za Crnu Goru. Projektujemo, isporučujemo i montiramo opremu za dječija igrališta — od pojedinačnih sprava do kompletnih tematskih i inkluzivnih igrališta za škole, vrtiće, parkove, hotele i stambene komplekse.",
         "facts": ["Ekskluzivno za Crnu Goru", "20+ linija proizvoda", "EN 1176 · TÜV SÜD", "Inkluzivna oprema", "Prilagođene modifikacije"],
         "ticker": ["Vrtići", "Škole", "Parkovi", "Stambeni kompleksi", "Hoteli"],
         "why_h": "IGRA KOJA<br>TRAJE.",
@@ -284,6 +320,12 @@ LP = {
             ("Isporuka i montaža", "Isporučujemo opremu i montiramo igralište na lokaciji."),
             ("Otvaranje", "Predajemo igralište spremno za korišćenje i pomažemo u promociji otvaranja."),
         ],
+        # Realizovani projekti — foto (opciono): assets/img/projects/<img>
+        "projects": [
+            {"img": "simba.jpg", "meta": "Podgorica · maj 2026", "title": "Vaspitna jedinica „Simba“",
+             "text": "Novo dječje igralište sa Buglo Play opremom u vrtiću „Simba“, JPU „Ljubica Popović“ — multifunkcionalan prostor prilagođen djeci različitog uzrasta.",
+             "link": "https://www.gov.me/clanak/u-vaspitnoj-jedinici-simba-otvoreno-novo-djecje-igraliste", "link_label": "Vijest na gov.me"},
+        ],
         "faq": [
             ("Ko je distributer Buglo Play opreme u Crnoj Gori?", "5to9 je ekskluzivni distributer Buglo Play opreme za Crnu Goru — ponuda, isporuka, montaža i podrška idu preko nas."),
             ("Da li je oprema sertifikovana?", "Da. Svaki proizvod je sertifikovan u skladu sa evropskim standardom EN 1176:2017, a sertifikate izdaje TÜV SÜD."),
@@ -302,7 +344,7 @@ LP = {
         "hero_alt": "Children playing on an inclusive playground",
         "eyebrow": "Exclusive distributor · Buglo Play",
         "h1": "CHILDREN'S<br><em>PLAYGROUNDS</em>",
-        "lead": "Exclusive Buglo Play distributor for Montenegro. From a single spring rider to a complete themed playground — we choose the equipment, plan the layout and install a playground shaped around the space and the children who will use it.",
+        "lead": "Exclusive Buglo Play distributor for Montenegro. We design, supply and install children's playground equipment — from individual pieces to complete themed and inclusive playgrounds for schools, preschools, parks, hotels and residential complexes.",
         "facts": ["Exclusive for Montenegro", "20+ product lines", "EN 1176 · TÜV SÜD", "Inclusive equipment", "Custom modifications"],
         "ticker": ["Preschools", "Schools", "Parks", "Residential complexes", "Hotels"],
         "why_h": "PLAY THAT<br>LASTS.",
@@ -332,6 +374,11 @@ LP = {
             ("Delivery and installation", "We deliver the equipment and install the playground on site."),
             ("Opening", "We hand over a playground ready for use and help promote the opening."),
         ],
+        "projects": [
+            {"img": "simba.jpg", "meta": "Podgorica · May 2026", "title": "Preschool unit “Simba”",
+             "text": "A new children's playground with Buglo Play equipment at the “Simba” preschool, part of JPU “Ljubica Popović” — a multifunctional space designed for children of different ages.",
+             "link": "https://www.gov.me/clanak/u-vaspitnoj-jedinici-simba-otvoreno-novo-djecje-igraliste", "link_label": "News on gov.me"},
+        ],
         "faq": [
             ("Who distributes Buglo Play in Montenegro?", "5to9 is the exclusive Buglo Play distributor for Montenegro — quotes, delivery, installation and support all go through us."),
             ("Is the equipment certified?", "Yes. Every product is certified to the European EN 1176:2017 standard, with certificates issued by TÜV SÜD."),
@@ -356,7 +403,7 @@ LP = {
         "hero_alt": "Red narandžastih StreetBarbell sprava za trening snage na otvorenom",
         "eyebrow": "Ekskluzivni distributer · StreetBarbell",
         "h1": "OUTDOOR<br><em>FITNESS</em>",
-        "lead": "Ekskluzivni distributer StreetBarbell opreme za Crnu Goru. Teretana na otvorenom sa pravim tegovima. Finska StreetBarbell oprema, ispitana po standardu EN 16630 — planiramo, isporučujemo i montiramo za opštine, škole, hotele i stambene komplekse.",
+        "lead": "Ekskluzivni distributer StreetBarbell outdoor fitness opreme za Crnu Goru. Nudimo sprave za vježbanje na otvorenom, street workout i kalisteniku za opštine, škole, hotele, stambene komplekse i javne prostore, uz planiranje, isporuku i montažu.",
         "facts": ["Ekskluzivno za Crnu Goru", "Patentirani sistem tegova", "EN 16630 · TÜV Thüringen", "9 linija opreme", "Do 10 god. garancije na ram"],
         "ticker": ["Outdoor teretane", "Street workout", "Kalistenika", "Inkluzivne sprave", "Parkovi", "Kampusi"],
         "why_h": "TERETANA<br>BEZ KROVA.",
@@ -407,7 +454,7 @@ LP = {
         "hero_alt": "A row of orange StreetBarbell outdoor strength machines",
         "eyebrow": "Exclusive distributor · StreetBarbell",
         "h1": "OUTDOOR<br><em>FITNESS</em>",
-        "lead": "Exclusive StreetBarbell distributor for Montenegro. An open-air gym with real weights. Finnish StreetBarbell equipment, tested to EN 16630 — we plan, supply and install it for municipalities, schools, hotels and residential complexes.",
+        "lead": "Exclusive StreetBarbell outdoor fitness distributor for Montenegro. We offer outdoor exercise equipment, street workout and calisthenics for municipalities, schools, hotels, residential complexes and public spaces, with planning, delivery and installation.",
         "facts": ["Exclusive for Montenegro", "Patented weight system", "EN 16630 · TÜV Thüringen", "9 equipment lines", "Up to 10-year frame warranty"],
         "ticker": ["Outdoor gyms", "Street workout", "Calisthenics", "Inclusive equipment", "Parks", "Campuses"],
         "why_h": "A GYM<br>WITHOUT A ROOF.",

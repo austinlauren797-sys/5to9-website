@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "15"  # cache-busting for css/js
+V = "16"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
@@ -478,6 +478,26 @@ def build_lp(key, lang):
     faqs = "\n".join(f"""      <details><summary>{q}</summary><p>{a}</p></details>""" for q, a in faq)
     others = [k for k in CAT_ORDER if k != key]
     gallery_html = ""
+    projects_html = ""
+    if T.get("projects"):
+        def _proj(p):
+            img = (f'<figure><img src="{pre}assets/img/projects/{p["img"]}" alt="{esc(p["title"])}" loading="lazy" '
+                   f'width="720" height="540" onerror="this.parentNode.remove()"></figure>') if p.get("img") else ""
+            link = (f'<a class="plink" href="{p["link"]}" target="_blank" rel="noopener">{p["link_label"]} ↗</a>') if p.get("link") else ""
+            return (f'    <article class="project">{img}<p class="pmeta">{p["meta"]}</p>'
+                    f'<h3>{p["title"]}</h3><p>{p["text"]}</p>{link}</article>')
+        band = "dark grain" if D.get("gallery") else "light-2"
+        projects_html = f'''
+<section class="band {band}" id="{'projekti' if lang == 'me' else 'projects'}">
+  <div class="reveal">
+    <p class="eyebrow">{L['proj_eyebrow']}</p>
+    <h2 class="h-lg">{L['proj_h']}</h2>
+  </div>
+  <div class="projects reveal">
+''' + "\n".join(_proj(p) for p in T["projects"]) + '''
+  </div>
+</section>
+'''
     points_html = ""
     if T.get("gallery_points"):
         points_html = '  <div class="benefits gpoints reveal">\n' + "\n".join(
@@ -551,7 +571,7 @@ def build_lp(key, lang):
   <div class="specstrip reveal">{strip(getattr(P, D['strip'])[lang])}</div>
 </section>
 
-{gallery_html}
+{gallery_html}{projects_html}
 <section class="band light-2" id="{I['who']}">
   <div class="aud-wrap">
     <div class="reveal">
@@ -617,6 +637,31 @@ def build_lp(key, lang):
     write(path, "".join(out))
 
 # ------------------------------------------------------------------ 404
+THANKS = {
+    "me": dict(path="hvala", lang="sr-Latn-ME", title="Hvala na upitu — 5to9", eyebrow="Upit je poslat",
+               h="HVALA<br><em>NA UPITU.</em>", p="Primili smo vašu poruku i javićemo vam se u najkraćem roku.",
+               btn="Nazad na početnu stranicu", home="/"),
+    "en": dict(path="en/thank-you", lang="en", title="Thank you — 5to9", eyebrow="Enquiry sent",
+               h="THANK YOU<br><em>FOR YOUR ENQUIRY.</em>", p="We have received your message and will get back to you as soon as possible.",
+               btn="Back to the home page", home="/en/"),
+}
+def build_thanks(lang):
+    """Thank-you page shown after a successful form submission. Not linked from any menu, not in the sitemap, noindex."""
+    T = THANKS[lang]
+    t = f"""<!DOCTYPE html>
+<html lang="{T['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{T['title']}</title><meta name="robots" content="noindex, nofollow">
+{FAVICON_LINKS}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v={V}"></head>
+<body class="lp"><header class="band dark grain" style="min-height:100svh">
+<p class="eyebrow">{T['eyebrow']}</p><h1 class="h-lp">{T['h']}</h1>
+<p class="lp-lead">{T['p']}</p>
+<div class="btns"><a class="btn btn-o" href="{T['home']}">{T['btn']} →</a></div>
+</header></body></html>
+"""
+    write(T["path"], t)
+
 def build_404():
     t = """<!DOCTYPE html>
 <html lang="sr-Latn-ME"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -661,7 +706,7 @@ def main():
     for lang in ("me", "en"):
         build_home(lang)
         for key in CAT_ORDER: build_lp(key, lang)
-    build_404(); build_sitemap()
+    build_404(); build_thanks("me"); build_thanks("en"); build_sitemap()
     open(os.path.join(OUT, "CNAME"), "w").write("5to9.me")
     open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\nSitemap: https://5to9.me/sitemap.xml\n")
     print("built →", OUT)

@@ -215,3 +215,13 @@ html[lang^="sr"] .h-lp{line-height:.94}
 .partners .arrow{margin-left:0}
 .partners .plogo{height:30px;width:auto;max-width:130px;object-fit:contain;align-self:center;flex:none}
 @media(max-width:560px){.partners .site{margin-left:44px;order:5;flex-basis:100%}.partners .arrow{margin-left:auto}}
+
+/* completed projects on landing pages */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:clamp(18px,2vw,32px);margin-top:clamp(28px,4vw,48px);max-width:1200px}
+.project{border-top:2px solid var(--orange);padding-top:18px}
+.project figure{margin:0 0 16px;aspect-ratio:4/3;overflow:hidden;background:rgba(128,128,128,.15)}
+.project img{width:100%;height:100%;object-fit:cover;display:block}
+.project .pmeta{font-family:'Archivo';font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin:0 0 10px}
+.project h3{font-size:clamp(20px,1.8vw,26px);line-height:1.05;margin:0 0 10px}
+.project p{margin:0 0 14px;font-size:15px;opacity:.8}
+.project .plink{font-size:14px;font-weight:700;color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
