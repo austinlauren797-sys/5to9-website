@@ -75,10 +75,10 @@ CATS = {
     "panels": {
         "img": "tile-panels.webp",
         "me": {"nav": "Interaktivne table", "title": "Interaktivne table",
-               "text": "4K table sa montažom, obukom i garancijom od 2 godine.",
+               "text": "GAOKEview, ekskluzivno za Crnu Goru. 4K table sa montažom, obukom i garancijom od 2 godine.",
                "alt": "Učenici rade na interaktivnoj tabli u učionici"},
         "en": {"nav": "Interactive displays", "title": "Interactive displays",
-               "text": "4K panels with installation, training and a 2-year warranty.",
+               "text": "GAOKEview, exclusive for Montenegro. 4K panels with installation, training and a 2-year warranty.",
                "alt": "Pupils working at an interactive display in a classroom"},
     },
     "playgrounds": {

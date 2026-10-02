@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "14"  # cache-busting for css/js
+V = "15"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
@@ -269,6 +269,18 @@ def write(path, content):
     open(fp, "w", encoding="utf-8").write(brand_nb(content))
 
 # ------------------------------------------------------------------ HOME
+def partner_items(H, path, lang, pre):
+    """Partner rows: logo (if the file exists in assets/img/partners/, otherwise it just hides), name, role, website."""
+    out = []
+    for i, (n, r, u, d, logo, k) in enumerate(H["partners"]):
+        img = f'<img class="plogo" src="{pre}assets/img/partners/{logo}" alt="{esc(n)} logo" loading="lazy" onerror="this.remove()">'
+        if u:
+            a, tail = f'<a href="{u}" target="_blank" rel="noopener">', f'<span class="site">{d}</span><span class="arrow">↗</span>'
+        else:  # no partner website yet: link to our own page for that product line
+            a, tail = f'<a href="{rel(path, PATHS[k][lang])}">', '<span class="arrow">→</span>'
+        out.append(f'    <li>{a}<span class="idx">{i+1:02d}</span>{img}{n}<span class="reg">{r}</span>{tail}</a></li>\n')
+    return "".join(out)
+
 def build_home(lang):
     H = HOME[lang]; C = COMMON[lang]; key = "home"
     path = PATHS[key][lang]; pre = "../" * depth_of(path)
@@ -407,7 +419,7 @@ def build_home(lang):
     <p>{H['partners_p']}</p>
   </div>
   <ul class="pillars partners reveal">
-{"".join(f'    <li><a href="{u}" target="_blank" rel="noopener"><span class="idx">{i+1:02d}</span>{n}<span class="reg">{r}</span><span class="site">{d}</span><span class="arrow">↗</span></a></li>' + chr(10) for i, (n, r, u, d) in enumerate(H['partners']))}  </ul>
+{partner_items(H, path, lang, pre)}  </ul>
 </section>
 
 <section class="band dark grain" id="contact">

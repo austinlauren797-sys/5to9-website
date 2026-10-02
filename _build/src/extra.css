@@ -213,4 +213,5 @@ html[lang^="sr"] .h-lp{line-height:.94}
 .partners .reg{font-family:'Archivo';font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.55}
 .partners .site{margin-left:auto;font-family:'Archivo';font-size:13px;font-weight:600;letter-spacing:.02em;opacity:.7}
 .partners .arrow{margin-left:0}
+.partners .plogo{height:30px;width:auto;max-width:130px;object-fit:contain;align-self:center;flex:none}
 @media(max-width:560px){.partners .site{margin-left:44px;order:5;flex-basis:100%}.partners .arrow{margin-left:auto}}
