@@ -80,7 +80,7 @@ HOME = {
     "partners_p": "Ekskluzivni smo distributer ovih proizvođača. Posjetite njihove sajtove i saznajte više o opremi koju isporučujemo.",
     # (naziv, uloga, sajt ili None, prikaz domena, logo u assets/img/partners/, naša stranica ako nema sajta)
     "partners": [("Teqball", "Ekskluzivni distributer za Balkan", "https://teqball.com", "teqball.com", "teqball.png", "teqball"),
-                 ("GAOKEview", "Ekskluzivni distributer za Crnu Goru", None, None, "gaokeview.png", "panels"),
+                 ("GAOKEview", "Ekskluzivni distributer za Crnu Goru", "https://www.hzgaokegroup.com", "hzgaokegroup.com", "gaokeview.png", "panels"),
                  ("Buglo Play", "Ekskluzivni distributer za Crnu Goru", "https://www.buglo.pl/en/", "buglo.pl", "buglo.png", "playgrounds"),
                  ("StreetBarbell", "Ekskluzivni distributer za Crnu Goru", "https://www.streetbarbell.com", "streetbarbell.com", "streetbarbell.png", "fitness")],
     "contact_eyebrow": "Kontakt",
@@ -167,7 +167,7 @@ HOME = {
     "partners_h": "WHO WE<br>WORK WITH.",
     "partners_p": "We are the exclusive distributor for these manufacturers. Visit their websites to learn more about the equipment we deliver.",
     "partners": [("Teqball", "Exclusive distributor for the Balkans", "https://teqball.com", "teqball.com", "teqball.png", "teqball"),
-                 ("GAOKEview", "Exclusive distributor for Montenegro", None, None, "gaokeview.png", "panels"),
+                 ("GAOKEview", "Exclusive distributor for Montenegro", "https://www.hzgaokegroup.com", "hzgaokegroup.com", "gaokeview.png", "panels"),
                  ("Buglo Play", "Exclusive distributor for Montenegro", "https://www.buglo.pl/en/", "buglo.pl", "buglo.png", "playgrounds"),
                  ("StreetBarbell", "Exclusive distributor for Montenegro", "https://www.streetbarbell.com", "streetbarbell.com", "streetbarbell.png", "fitness")],
     "contact_eyebrow": "Contact",
