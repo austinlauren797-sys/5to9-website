@@ -10,7 +10,7 @@ import content_products as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
-V = "16"  # cache-busting for css/js
+V = "17"  # cache-busting for css/js
 
 MARK_PATH = open(os.path.join(HERE, "src", "mark_path.txt")).read().strip()
 FAVICON = open(os.path.join(HERE, "src", "favicon.txt")).read().strip()  # staro SVG (ne koristi se)
@@ -187,6 +187,43 @@ def map_band(lang):
     </div>
   </div>
 </section>"""
+
+# ------------------------------------------------------------------ ENQUIRY FORM
+# Static site (GitHub Pages) -> the form is delivered by FormSubmit (formsubmit.co) to EMAIL,
+# then FormSubmit redirects the visitor to the thank-you page (_next).
+# First submission ever: FormSubmit e-mails an activation link to EMAIL; the form works after it is clicked once.
+FORM_ACTION = "https://formsubmit.co/" + EMAIL
+FORM_TXT = {
+    "me": dict(name="Ime i prezime", email="Email", phone="Telefon", org="Ustanova / firma", msg="Poruka",
+               ph="Šta vas zanima, grad, količina ili veličina prostora, željeni rok…", send="Pošaljite upit",
+               note="Upit stiže direktno našem timu. Odgovaramo u najkraćem roku.", subj="Upit sa sajta 5to9.me", general="Opšti upit",
+               next=SITE + "hvala/"),
+    "en": dict(name="Full name", email="Email", phone="Phone", org="Organisation / company", msg="Message",
+               ph="What you need, city, quantity or size of the space, preferred timeline…", send="Send an enquiry",
+               note="Your enquiry goes straight to our team. We reply as soon as possible.", subj="Website enquiry 5to9.me", general="General enquiry",
+               next=SITE + "en/thank-you/"),
+}
+def enquiry_form(lang, topic=None, theme="dark", call_label=None):
+    F = FORM_TXT[lang]; topic = topic or F["general"]
+    btn = "btn-o" if theme == "dark" else "btn-k"
+    call = (f'<a class="btn {"btn-g" if theme == "dark" else "btn-kl"}" href="tel:{PHONE_TEL}">{call_label}</a>') if call_label else ""
+    return f"""<form class="eform eform-{theme}" action="{FORM_ACTION}" method="POST">
+      <input type="hidden" name="_subject" value="{esc(F['subj'] + ' — ' + topic)}">
+      <input type="hidden" name="_next" value="{F['next']}">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="Tema" value="{esc(topic)}">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="ef-grid">
+        <label><span>{F['name']} *</span><input type="text" name="Ime" required autocomplete="name"></label>
+        <label><span>{F['email']} *</span><input type="email" name="email" required autocomplete="email"></label>
+        <label><span>{F['phone']}</span><input type="tel" name="Telefon" autocomplete="tel"></label>
+        <label><span>{F['org']}</span><input type="text" name="Ustanova" autocomplete="organization"></label>
+        <label class="full"><span>{F['msg']} *</span><textarea name="Poruka" rows="4" required placeholder="{esc(F['ph'])}"></textarea></label>
+      </div>
+      <div class="btns"><button class="btn {btn}" type="submit">{F['send']} →</button>{call}</div>
+      <p class="ef-note">{F['note']}</p>
+    </form>"""
 
 def contacts(lang):
     C = COMMON[lang]
@@ -426,6 +463,7 @@ def build_home(lang):
   <div class="reveal contact">
     <p class="eyebrow">{H['contact_eyebrow']}</p>
     <h2 class="h-lg">{H['contact_h']}</h2>
+    {enquiry_form(lang, theme="dark")}
     {contacts(lang)}
   </div>
 </section>
@@ -613,12 +651,9 @@ def build_lp(key, lang):
       <h2 class="h-lg">{L['ask_h']}</h2>
       <div>
         <p>{T['ask_p']}</p>
-        <div class="btns">
-          <a class="btn btn-k" href="{esc(mailto)}">{L['ask_btn']} →</a>
-          <a class="btn btn-kl" href="tel:{PHONE_TEL}">{L['call_btn']}</a>
-        </div>
       </div>
     </div>
+    {enquiry_form(lang, T['mail_cat'], theme="light", call_label=L['call_btn'])}
     {contacts(lang)}
   </div>
 </section>

@@ -225,3 +225,20 @@ html[lang^="sr"] .h-lp{line-height:.94}
 .project h3{font-size:clamp(20px,1.8vw,26px);line-height:1.05;margin:0 0 10px}
 .project p{margin:0 0 14px;font-size:15px;opacity:.8}
 .project .plink{font-size:14px;font-weight:700;color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+
+/* enquiry form (FormSubmit -> /hvala/) */
+.eform{max-width:980px;margin:0 0 clamp(44px,6vh,70px)}
+.eform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.ef-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px clamp(20px,3vw,40px)}
+.ef-grid .full{grid-column:1/-1}
+.eform label{display:block}
+.eform label span{display:block;font-family:'Archivo';font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.eform input,.eform textarea{display:block;width:100%;box-sizing:border-box;background:transparent;border:0;border-bottom:1px solid currentColor;border-radius:0;color:inherit;font:500 16px/1.45 'Archivo',sans-serif;padding:8px 0;outline:none;-webkit-appearance:none;appearance:none}
+.eform textarea{resize:vertical;min-height:110px}
+.eform input::placeholder,.eform textarea::placeholder{color:inherit;opacity:.45}
+.eform-dark input:focus,.eform-dark textarea:focus{border-bottom-color:var(--orange)}
+.eform-light input:focus,.eform-light textarea:focus{border-bottom-width:2px}
+.eform .btns{margin-top:28px}
+.eform button.btn{border:1px solid transparent}
+.ef-note{font-size:13px;opacity:.6;margin:14px 0 0;max-width:60ch}
+@media(max-width:700px){.ef-grid{grid-template-columns:1fr}}
