@@ -38,12 +38,23 @@ def rel(frm, to):
     return r if r else "./"
 
 # ------------------------------------------------------------------ shared chunks
+# Google tag (gtag.js) — Google Ads AW-767660964, sitewide incl. /hvala/ (conversion URL)
+GTAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-767660964"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-767660964');
+</script>"""
+
 def head(lang, key, path, title, desc, og_img, jsonld):
     pre = "../" * depth_of(path)
     me, en = PATHS[key]["me"], PATHS[key]["en"]
     return f"""<!DOCTYPE html>
 <html lang="{HTML_LANG[lang]}">
 <head>
+{GTAG}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
@@ -684,7 +695,9 @@ def build_thanks(lang):
     """Thank-you page shown after a successful form submission. Not linked from any menu, not in the sitemap, noindex."""
     T = THANKS[lang]
     t = f"""<!DOCTYPE html>
-<html lang="{T['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="{T['lang']}"><head>
+{GTAG}
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{T['title']}</title><meta name="robots" content="noindex, nofollow">
 {FAVICON_LINKS}
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
@@ -699,7 +712,9 @@ def build_thanks(lang):
 
 def build_404():
     t = """<!DOCTYPE html>
-<html lang="sr-Latn-ME"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="sr-Latn-ME"><head>
+%s
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>404 — 5to9</title><meta name="robots" content="noindex">
 %s
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
@@ -709,7 +724,7 @@ def build_404():
 <p class="lp-lead">Page not found.</p>
 <div class="btns"><a class="btn btn-o" href="/">5to9 — Početna</a><a class="btn btn-g" href="/en/">English</a></div>
 </header></body></html>
-""" % (FAVICON_LINKS, V)
+""" % (GTAG, FAVICON_LINKS, V)
     open(os.path.join(OUT, "404.html"), "w", encoding="utf-8").write(brand_nb(t))
 
 def build_sitemap():
